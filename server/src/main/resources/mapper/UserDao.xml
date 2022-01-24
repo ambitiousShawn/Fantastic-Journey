@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cloudnote.dao.UserDao">
+    <select id="queryUserByName" resultType="com.cloudnote.pojo.User">
+        select * from tb_user where userName=#{userName}
+    </select>
+
+    <insert id="register" >
+        insert into tb_user(userName,password,nick)
+        values(#{userName},#{password},#{nick})
+    </insert>
+
+    <update id="updatePwd" >
+        update tb_user set password=#{password} where userName=#{userName}
+    </update>
+</mapper>
